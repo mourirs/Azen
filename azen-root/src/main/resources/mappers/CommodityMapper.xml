@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.root.dao.CommodityMapper">
+    <select id="commodityListInFo" parameterType="string" resultType="commodity">
+        SELECT
+        sp_commodity.coid,
+        sp_commodity.coname,
+        sp_commodity.coprice,
+        sp_commodity.cogrounding,
+        sp_commodity.conum,
+        sp_commodity.coimage,
+        sp_commodity.cyid,
+        sp_commoditycategory.cytype
+        FROM
+        sp_commodity LEFT JOIN
+        sp_commoditycategory
+        ON sp_commodity.cyid = sp_commoditycategory.cyid
+        <where>
+            <if test="name != null and name != '' ">
+                AND sp_commodity.coname like concat("%",#{name},"%")
+            </if>
+        </where>
+    </select>
+
+    <update id="commodityUpdateInFo" parameterType="commodity">
+        UPDATE `shop`.`sp_commodity`
+        SET
+        `coname` = #{coName},
+        `coprice` = #{coPrice},
+        `cogrounding` = #{coGrounding},
+        `conum` = #{coNum},
+        `cyid` = #{cyId},
+        `coimage` = concat("images/product/",#{coImage})
+        WHERE `coid` = #{coId}
+    </update>
+
+    <insert id="commodityInsertInFo" parameterType="commodity">
+        INSERT INTO
+        `shop`.`sp_commodity`
+        (`coname`, `coprice`, `cogrounding`, `conum`, `cyid`, `coimage`)
+        VALUES (#{coName},#{coPrice},#{coGrounding},#{coNum},#{cyId},concat("images/product/",#{coImage}))
+    </insert>
+
+    <update id="commodityUpdateDown" parameterType="int">
+        UPDATE `shop`.`sp_commodity`
+        SET `cogrounding`= 0 WHERE `coid`=#{id}
+    </update>
+
+    <update id="commodityUpdateUp" parameterType="int">
+        UPDATE `shop`.`sp_commodity`
+        SET `cogrounding`= 1 WHERE `coid`=#{id}
+    </update>
+</mapper>

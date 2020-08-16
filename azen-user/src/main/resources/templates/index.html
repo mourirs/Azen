@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en-US" class=" yes-js js_active js" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.theme.default.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{assets/css/slick.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{assets/css/settings.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css}">
+    <link rel="stylesheet" th:href="@{assets/css/element.css}">
+    <link rel="icon" th:href="@{images/favicon.png}" type="image/png">
+    <title>Home</title>
+</head>
+<body>
+<div class=" homepage-v3 wrapper-container">
+    <div class="top-bar">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="text-3" class="col-md-9 col-12 widget_text">
+                    <div class="textwidget">
+                        <ul>
+                            <li>Call Us : +9-999-999-999</li>
+                            <li>Text Us : Azenfashion@999.com</li>
+                            <li>Meet Us : 999 xxxxx xxxxx , xxxxx , xxxxx</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="text-4" class="col-md-3 col-12 widget_text">
+                    <div class="textwidget"><p>Follow us: &nbsp;&nbsp;<a
+                            href="#"><i class="zmdi zmdi-facebook"></i></a><a
+                            href="#"> <i class="zmdi zmdi-twitter"></i></a><a
+                            href="#"><i class="zmdi zmdi-instagram"></i></a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="masthead" class="site-header">
+        <div class="header-hp-1 style-header-hp-1 affix">
+            <div id="js-navbar-fixed" class="menu-desktop">
+                <div class="menu-desktop-inner">
+                    <!-- Logo -->
+                    <div class="menu-mobile-effect hamburger hamburger--spin">
+                        <div class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </div>
+                    </div>
+                    <div class="logo">
+                        <a href="index.html" title="azen" rel="home">
+                            <img src="images/Logo.png" alt="azen.physcode.com">
+                        </a>
+                    </div>
+                    <div class="content-right-header3">
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <ul class="navmenu">
+                                <li class="menu-item menu-item-has-children">
+                                    <a href="index.html" class="active">Home</a>
+                                </li>
+                                <li class="menu-item menu-item-has-children">
+                                    <a th:href="@{/login}">Account</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item">
+                                            <a th:href="@{/login}">Login/Register</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/information}">Information</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children">
+                                    <a th:href="@{/shop}">Shop</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item">
+                                            <a th:href="@{/shop}">Shopping</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/wishlist}">Wishlist</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/cart}">Cart</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/orderIF}">Order</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item">
+                                    <a th:href="@{/contact}">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- Header Right -->
+                        <div class="header-right">
+                            <div class="header-wishlist">
+                                <a th:href="@{/wishlist}"><i class="fa fa-heart"></i></a>
+                            </div>
+                            <div class="woocommerce widget_shopping_cart">
+                                <div class="minicart_hover" id="header-mini-cart">
+                                    <a class="cart-items-number" th:href="@{/cart}"><i class="icon-bag"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="site page-content">
+        <div class="home-content" role="main">
+            <!--REVOLUTION SLIDER -->
+            <div id="rev_slider_3_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container slider-homepage"
+                 data-alias="slider-homepage3" data-source="gallery">
+                <!-- START REVOLUTION SLIDER 5.4.8.3 fullwidth mode -->
+                <div id="rev_slider_3_1" class="rev_slider fullwidthabanner" style="display:none;"
+                     data-version="5.4.8.3">
+                    <ul>    <!-- SLIDE  -->
+                        <li data-index="rs-19"
+                            data-transition="slideleft,slideremoveleft,slotfade-horizontal,slotslide-vertical,fadetorightfadefromleft,fadefromtop,fadefromright,parallaxtotop,parallaxtobottom,curtain-3,curtain-1,cube-horizontal,incube-horizontal,turnoff-vertical,flyin,random-static"
+                            data-slotamount="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-hideafterloop="0" data-hideslideonmobile="off" data-randomtransition="on"
+                            data-easein="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-easeout="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-masterspeed="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-thumb="assets/slide1-hp3-100x50.jpg" data-rotate="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+                            data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3=""
+                            data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+                            data-param10="" data-description="">
+                            <!-- MAIN IMAGE -->
+                            <img src="images/slider/slide1-hp3.jpg" alt="" data-bgposition="center center"
+                                 data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg"
+                                 data-no-retina>
+                            <!-- LAYERS -->
+
+                            <!-- LAYER NR. 1 -->
+                            <div class="tp-caption   tp-resizeme  title-heavy"
+                                 id="slide-19-layer-1"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','-1','0']"
+                                 data-y="['top','top','top','top']" data-voffset="['226','203','151','120']"
+                                 data-fontsize="['22','20','20','15']"
+                                 data-lineheight="['22','20','20','15']"
+                                 data-fontweight="['700','600','600','600']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="text"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+
+                                 style="z-index: 5; white-space: nowrap; font-size: 22px; line-height: 22px; font-weight: 700; color: #ffffff; letter-spacing: 0px;font-family:Muli;font-style:italic;">
+                                n.e.w &nbsp; m.a.n &nbsp; c.o.l.l.e.c.t.i.o.n
+                            </div>
+
+                            <!-- LAYER NR. 2 -->
+                            <div class="tp-caption   tp-resizeme  title"
+                                 id="slide-19-layer-2"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                 data-y="['top','top','top','top']" data-voffset="['287','261','189','160']"
+                                 data-fontsize="['60','60','40','40']"
+                                 data-lineheight="['60','50','50','30']"
+                                 data-fontweight="['800','600','600','600']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="text"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:50px;opacity:0;","ease":"nothing"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+
+                                 style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 60px; font-weight: 800; color: #ffffff; letter-spacing: 10px;font-family:Muli;text-transform:uppercase;">
+                                Never more
+                            </div>
+
+                            <!-- LAYER NR. 3 -->
+                            <div class="tp-caption rev-btn  tp-resizeme  title"
+                                 id="slide-19-layer-3"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','-2','0']"
+                                 data-y="['top','top','top','top']" data-voffset="['400','358','268','223']"
+                                 data-fontweight="['600','600','500','600']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="button"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"x:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(17,17,17);bg:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[15,15,15,15]"
+                                 data-paddingright="[35,35,35,35]"
+                                 data-paddingbottom="[15,15,15,15]"
+                                 data-paddingleft="[35,35,35,35]"
+
+                                 style="z-index: 7; white-space: nowrap; font-size: 14px; line-height: 14px; font-weight: 600; color: #ffffff; letter-spacing: 0px;font-family:Muli;text-transform:uppercase;background-color:rgb(255,71,71);border-color:rgba(0,0,0,1);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
+                                <a th:href="@{/shop}">view detail</a>
+                            </div>
+                        </li>
+                        <!-- SLIDE  -->
+                        <li data-index="rs-20"
+                            data-transition="slideleft,slideremoveleft,slotfade-horizontal,slotslide-vertical,fadetorightfadefromleft,fadefromtop,fadefromright,parallaxtotop,parallaxtobottom,curtain-3,curtain-1,cube-horizontal,incube-horizontal,turnoff-vertical,flyin,random-static"
+                            data-slotamount="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-hideafterloop="0" data-hideslideonmobile="off" data-randomtransition="on"
+                            data-easein="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-easeout="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-masterspeed="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-thumb="assets/slide2-hp3-100x50.jpg" data-rotate="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+                            data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3=""
+                            data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+                            data-param10="" data-description="">
+                            <!-- MAIN IMAGE -->
+                            <img src="images/slider/slide2-hp3.jpg" alt="" data-bgposition="center center"
+                                 data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg"
+                                 data-no-retina>
+                            <!-- LAYERS -->
+
+                            <!-- LAYER NR. 4 -->
+                            <div class="tp-caption   tp-resizeme  title-heavy"
+                                 id="slide-20-layer-1"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','-1','0']"
+                                 data-y="['top','top','top','top']" data-voffset="['228','199','151','118']"
+                                 data-fontsize="['22','20','20','15']"
+                                 data-lineheight="['22','20','20','15']"
+                                 data-fontweight="['700','600','600','600']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="text"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"y:bottom;rZ:90deg;sX:2;sY:2;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[-100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"nothing"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+
+                                 style="z-index: 5; white-space: nowrap; font-size: 22px; line-height: 22px; font-weight: 700; color: #ffffff; letter-spacing: 0px;font-family:Muli;font-style:italic;">
+                                n.e.w &nbsp; a.r.r.i.v.a.l
+                            </div>
+
+                            <!-- LAYER NR. 5 -->
+                            <div class="tp-caption   tp-resizeme  title"
+                                 id="slide-20-layer-2"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                 data-y="['top','top','top','top']" data-voffset="['277','249','189','157']"
+                                 data-fontsize="['60','60','40','30']"
+                                 data-lineheight="['60','50','50','30']"
+                                 data-fontweight="['800','600','600','600']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="text"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"x:-200px;skX:85px;opacity:0;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+
+                                 style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 60px; font-weight: 800; color: #ffffff; letter-spacing: 10px;font-family:Muli;text-transform:uppercase;">
+                                the revolution
+                            </div>
+
+                            <!-- LAYER NR. 6 -->
+                            <div class="tp-caption rev-btn  tp-resizeme  title"
+                                 id="slide-20-layer-3"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','-2','-1']"
+                                 data-y="['top','top','top','top']" data-voffset="['391','351','268','220']"
+                                 data-fontweight="['600','600','500','500']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="button"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:50px;opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(17,17,17);bg:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[15,15,15,15]"
+                                 data-paddingright="[35,35,35,35]"
+                                 data-paddingbottom="[15,15,15,15]"
+                                 data-paddingleft="[35,35,35,35]"
+
+                                 style="z-index: 7; white-space: nowrap; font-size: 14px; line-height: 14px; font-weight: 600; color: #ffffff; letter-spacing: 0px;font-family:Muli;text-transform:uppercase;background-color:rgb(255,71,71);border-color:rgba(0,0,0,1);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
+                                <a th:href="@{/shop}">view detail</a>
+                            </div>
+                        </li>
+                        <!-- SLIDE  -->
+                        <li data-index="rs-21"
+                            data-transition="slideleft,slideremoveleft,slotfade-horizontal,slotslide-vertical,fadetorightfadefromleft,fadefromtop,fadefromright,parallaxtotop,parallaxtobottom,curtain-3,curtain-1,cube-horizontal,incube-horizontal,turnoff-vertical,flyin,random-static"
+                            data-slotamount="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-hideafterloop="0" data-hideslideonmobile="off" data-randomtransition="on"
+                            data-easein="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-easeout="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-masterspeed="default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default,default"
+                            data-thumb="assets/slide3-hp3-100x50.jpg" data-rotate="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+                            data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3=""
+                            data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+                            data-param10="" data-description="">
+                            <!-- MAIN IMAGE -->
+                            <img src="images/slider/slide3-hp3.jpg" alt="" data-bgposition="center center"
+                                 data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg"
+                                 data-no-retina>
+                            <!-- LAYERS -->
+
+                            <!-- LAYER NR. 7 -->
+                            <div class="tp-caption   tp-resizeme  title-heavy"
+                                 id="slide-21-layer-1"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','-1','0']"
+                                 data-y="['top','top','top','top']" data-voffset="['225','200','151','118']"
+                                 data-fontsize="['22','20','20','15']"
+                                 data-lineheight="['22','20','20','15']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="text"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"x:-200px;skX:85px;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:200px;skX:-85px;opacity:0;","ease":"Power3.easeInOut"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+
+                                 style="z-index: 5; white-space: nowrap; font-size: 22px; line-height: 22px; font-weight: 600; color: #ffffff; letter-spacing: 0px;font-family:Muli;font-style:italic;">
+                                L.i.m.i.t.e.d p.r.o.d.u.c.t
+                            </div>
+
+                            <!-- LAYER NR. 8 -->
+                            <div class="tp-caption   tp-resizeme  title"
+                                 id="slide-21-layer-2"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','1','2']"
+                                 data-y="['top','top','top','top']" data-voffset="['282','249','189','154']"
+                                 data-fontsize="['60','60','40','40']"
+                                 data-lineheight="['60','50','55','50']"
+                                 data-fontweight="['800','600','600','600']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="text"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"speed":1000,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:-50px;opacity:0;","ease":"nothing"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[0,0,0,0]"
+                                 data-paddingright="[0,0,0,0]"
+                                 data-paddingbottom="[0,0,0,0]"
+                                 data-paddingleft="[0,0,0,0]"
+
+                                 style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 60px; font-weight: 800; color: #ffffff; letter-spacing: 10px;font-family:Muli;text-transform:uppercase;">
+                                the beyond
+                            </div>
+
+                            <!-- LAYER NR. 9 -->
+                            <div class="tp-caption rev-btn  tp-resizeme  title"
+                                 id="slide-21-layer-3"
+                                 data-x="['center','center','center','center']" data-hoffset="['0','0','-2','0']"
+                                 data-y="['top','top','top','top']" data-voffset="['391','343','268','226']"
+                                 data-fontweight="['600','600','500','600']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+
+                                 data-type="button"
+                                 data-responsive_offset="on"
+
+                                 data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":500,"split_direction":"forward","frame":"0","from":"x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(17,17,17);bg:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]'
+                                 data-textAlign="['inherit','inherit','inherit','inherit']"
+                                 data-paddingtop="[15,15,15,15]"
+                                 data-paddingright="[35,35,35,35]"
+                                 data-paddingbottom="[15,15,15,15]"
+                                 data-paddingleft="[35,35,35,35]"
+
+                                 style="z-index: 7; white-space: nowrap; font-size: 14px; line-height: 14px; font-weight: 600; color: #ffffff; letter-spacing: 0px;font-family:Muli;text-transform:uppercase;background-color:rgb(255,71,71);border-color:rgba(0,0,0,1);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
+                                <a th:href="@{/shop}">view detail</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+                </div>
+            </div>
+            <!-- END REVOLUTION SLIDER -->
+            <!--categorie product-->
+            <div class="categories-homepage3-wrap container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="categories-homepage3 background-1">
+                            <div class="elementor-widget-container">
+                                <h2 class="heading-title">
+                                    <a th:href="@{/shop}">SHIRT</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="categories-homepage3 background-2">
+                            <div class="elementor-widget-container">
+                                <h2 class="heading-title">
+                                    <a th:href="@{/shop}">PANT</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="categories-homepage3 background-3">
+                            <div class="elementor-widget-container">
+                                <h2 class="heading-title">
+                                    <a th:href="@{/shop}">ACCESSORIES</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="categories-homepage3 background-4">
+                            <div class="elementor-widget-container">
+                                <h2 class="heading-title">
+                                    <a th:href="@{/shop}">FOOTWEAR</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container heading-product">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <h2 class="heading-title">featured products</h2>
+                    </div>
+                    <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-hp-3">
+                <div class="banner-hp-3-content">
+                    <h2 class="heading-title">Life is too short to wear boring clothes</h2>
+                    <a th:href="@{/shop}">
+                        <span class="button-text">Shop now</span>
+                    </a>
+                </div>
+            </div>
+            <div class="container heading-blog">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3 col-12">
+                        <h2 class="heading-title">latest from new</h2>
+                    </div>
+                    <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="sc-list-posts sc-posts-layout_2">
+                    <div class="row inner-list-posts">
+                        <div class="gird-item">
+                            <div class="news-details">
+                                <div class="post-formats-wrapper">
+                                    <a href="javascript:void(0)">
+                                        <img src="images/blog/blog2.jpg" alt="Fashion today">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                    <h4 class="post-title">
+                                        <a href="javascript:void(0)" rel="bookmark" tabindex="0">Fashion today</a>
+                                    </h4>
+                                    <div class="date">
+                                        <div class="time">17 - October - 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gird-item">
+                            <div class="news-details">
+                                <div class="post-formats-wrapper">
+                                    <a href="javascript:void(0)">
+                                        <img src="images/blog/blog11.jpg" alt="Make your style">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                    <h4 class="post-title">
+                                        <a href="javascript:void(0)">Make your style</a>
+                                    </h4>
+                                    <div class="date">
+                                        <div class="time">17 - October - 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gird-item">
+                            <div class="news-details">
+                                <div class="post-formats-wrapper">
+                                    <a href="javascript:void(0)">
+                                        <img src="images/blog/blog10.jpg" alt="Fashion don’t need to talk">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                    <h4 class="post-title">
+                                        <a href="javascript:void(0)">Fashion don’t need to talk</a>
+                                    </h4>
+                                    <div class="date">
+                                        <div class="time">17 - October - 2019
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gird-item">
+                            <div class="news-details">
+                                <div class="post-formats-wrapper">
+                                    <a href="javascript:void(0)">
+                                        <img src="images/blog/blog2.jpg" alt="Fashion today">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                    <h4 class="post-title">
+                                        <a href="javascript:void(0)" rel="bookmark" tabindex="0">Fashion today</a>
+                                    </h4>
+                                    <div class="date">
+                                        <div class="time">17 - October - 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gird-item">
+                            <div class="news-details">
+                                <div class="post-formats-wrapper">
+                                    <a href="javascript:void(0)">
+                                        <img src="images/blog/blog11.jpg" alt="Make your style">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                    <h4 class="post-title">
+                                        <a href="javascript:void(0)">Make your style</a>
+                                    </h4>
+                                    <div class="date">
+                                        <div class="time">17 - October - 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gird-item">
+                            <div class="news-details">
+                                <div class="post-formats-wrapper">
+                                    <a href="javascript:void(0)">
+                                        <img src="images/blog/blog10.jpg" alt="Fashion don’t need to talk">
+                                    </a>
+                                </div>
+                                <div class="info">
+                                    <h4 class="post-title">
+                                        <a href="javascript:void(0)">Fashion don’t need to talk</a>
+                                    </h4>
+                                    <div class="date">
+                                        <div class="time">17 - October - 2019
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--partner-->
+            <div class="partner partner-hp3">
+                <div class="owl-carousel owl-theme partner-content">
+                    <div class="item">
+                        <img src="images/brand/brand1_1.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/brand/brand2.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/brand/brand3.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/brand/brand4_1.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/brand/brand5.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/brand/brand6.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!--end partner-->
+            <!--subcribe hp-->
+            <div class="subcribe-hp subcribe-home3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
+                            <h2 class="heading-title">Subscribe for new letter</h2>
+                        </div>
+                        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit
+                                voluptatem accusantium remque laudantium, totam rem
+                            </p>
+                        </div>
+                        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12">
+                            <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-7"
+                                  method="post" data-id="7" data-name="">
+                                <div class="mc4wp-form-fields">
+                                    <p>
+                                        <input type="email" class="email"
+                                               name="EMAIL" placeholder="Your email..."
+                                               required="">
+                                        <input type="submit" class="submit" value="subscribe">
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end subcribe hp-->
+        </div>
+    </div><!-- #content -->
+
+
+    <div id="wrapper-footer" class="wrapper-footer">
+        <div class="container">
+            <div class="row">
+                <aside class="col-md-4">
+                    <div class="textwidget"><p><a href="#"><img
+                            class="alignnone size-full wp-image-100"
+                            src="images/Logo-white.png" alt=""></a></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut
+                            labore et dolore magna aliqua.</p>
+                        <div class="socials"><a href="javascript:void(0)">FACEBOOK</a>&nbsp;&nbsp; <a
+                                href="javascript:void(0)">TWITTER</a>&nbsp;&nbsp; <a
+                                href="javascript:void(0)">INSTAGRAM</a></div>
+                    </div>
+                </aside>
+                <aside class="col-md-4 text-footer">
+                    <h3 class="widget-title">INFO</h3>
+                    <div class="textwidget">
+                        <ul>
+                            <li><i class="zmdi zmdi-home"></i> 999 xxxxx xxxxx , xxxxx , xxxxx
+                            </li>
+                            <li><i class="zmdi zmdi-phone"></i> +9-999-999-999
+                            </li>
+                            <li><i class="zmdi zmdi-email"></i> Azenfashion@999.com
+                            </li>
+                            <li><i class="zmdi zmdi-time"></i> Monday - Saturday: 8:00 am - 18:00 pm
+                                <p class="footer-sunday">
+                                    &nbsp;&nbsp;&nbsp;Sunday : Closed
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <aside class="col-md-4 text-footer">
+                    <h3 class="widget-title">INSTAGRAM</h3>
+                    <div class="textwidget">
+                        <div id="sb_instagram" class="sbi sbi_col_4  sbi_width_resp sbi_small">
+                            <a href="javascript:void(0)"><img src="images/instagram/picter1.png" alt=""></a>
+                            <a href="javascript:void(0)"><img src="images/instagram/picter2.png" alt=""></a>
+                            <a href="javascript:void(0)"><img src="images/instagram/picter3.png" alt=""></a>
+                            <a href="javascript:void(0)"><img src="images/instagram/picter4.png" alt=""></a>
+                            <a href="javascript:void(0)"><img src="images/instagram/picter5.png" alt=""></a>
+                            <a href="javascript:void(0)"><img src="images/instagram/picter6.png" alt=""></a>
+                            <a href="javascript:void(0)"><img src="images/instagram/picter7.png" alt=""></a>
+                            <a href="javascript:void(0)"><img src="images/instagram/picter8.jpg" alt=""></a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div><!--end wrapper-container-->
+<span class="footer__arrow-top" style="bottom: 30px;">TOP</span>
+<script th:src="@{assets/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{assets/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/js/flexslider.js}"></script>
+<script th:src="@{assets/js/slick.min.js}"></script>
+<script th:src="@{assets/js/owl.carousel.js}"></script>
+<script th:src="@{assets/js/jquery.themepunch.tools.min.js}"></script>
+<script th:src="@{assets/js/jquery.themepunch.revolution.min.js}"></script>
+<script th:src="@{assets/js/theme.js}"></script>
+<script th:src="@{assets/js/vue.js}"></script>
+<script th:src="@{assets/js/element.js}"></script>
+<script th:src="@{assets/js/axios.js}"></script>
+<script th:src="@{assets/js/dataParse.js}"></script>
+</body>
+</html>

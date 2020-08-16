@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.root.dao.AdminMapper">
+    <select id="selectAdminByLogin" parameterType="admin" resultType="boolean">
+        SELECT
+        sp_admin.adid,
+        sp_admin.adacct,
+        sp_admin.adname,
+        sp_admin.adpawd,
+        sp_admin.ademail,
+        sp_admin.adtime
+        FROM
+        sp_admin
+        WHERE
+        sp_admin.ademail = #{adEmail}
+        AND
+        sp_admin.adpawd = #{adPawd}
+    </select>
+
+    <select id="adminListInFo" parameterType="string" resultType="admin">
+        SELECT
+        sp_admin.adid,
+        sp_admin.adacct,
+        sp_admin.adname,
+        sp_admin.ademail,
+        sp_admin.adtime
+        FROM
+        sp_admin
+        <where>
+            <if test="name != null and name != '' ">
+                AND sp_admin.adname like concat("%",#{name},"%")
+            </if>
+            AND
+            sp_admin.adid != 1
+        </where>
+    </select>
+
+    <insert id="adminInsertInFo" parameterType="admin">
+        INSERT INTO `shop`.`sp_admin`(`adacct`, `adname`, `adpawd`, `ademail`, `adtime`)
+        VALUES (#{adAcct},#{adName},#{adPawd},#{adEmail},#{adTime})
+    </insert>
+
+    <update id="adminUpdateInFo" parameterType="admin">
+        UPDATE `shop`.`sp_admin`
+        SET
+        `adacct` = #{adAcct},
+        `adname` = #{adName},
+        `adpawd` = #{adPawd},
+        `ademail` = #{adEmail}
+        WHERE `adid` = #{adId}
+    </update>
+
+    <delete id="adminDeleteInFo" parameterType="int">
+        DELETE FROM sp_admin WHERE sp_admin.adid = #{id}
+    </delete>
+</mapper>

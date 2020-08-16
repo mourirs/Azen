@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.user.dao.AddressMapper">
+    <insert id="insertInFo" parameterType="address">
+        INSERT INTO `shop`.`sp_address` ( `uid`, `area`, `detailedarea`, `postalcode`, `consignee`, `consigneephone` )
+            VALUES
+	    ( #{uId}, #{area}, #{detailedArea}, #{postalCode}, #{consignee}, #{consigneePhone} )
+    </insert>
+
+    <select id="addressInFo" parameterType="int" resultType="address">
+        SELECT
+        sp_address.arid,
+        sp_address.uid,
+        sp_address.area,
+        sp_address.detailedarea,
+        sp_address.postalcode,
+        sp_address.consignee,
+        sp_address.consigneephone
+        FROM
+        sp_address
+        WHERE
+        sp_address.uid = #{id}
+    </select>
+
+    <delete id="deleteAddressInFo" parameterType="int">
+        DELETE FROM sp_address WHERE sp_address.arid = #{id}
+    </delete>
+
+    <update id="updateAddressInFo" parameterType="address">
+        UPDATE `shop`.`sp_address`
+        SET
+        `area` = #{area},
+        `detailedarea` = #{detailedArea},
+        `postalcode` = #{postalCode},
+        `consignee` = #{consignee},
+        `consigneephone` = #{consigneePhone}
+        WHERE `arid` = #{arId}
+    </update>
+</mapper>

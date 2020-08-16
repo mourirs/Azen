@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.user.dao.AccountMapper">
+
+    <insert id="insertAccountInFo" parameterType="account">
+        INSERT INTO `shop`.`sp_account`
+        (`uid`, `abankcard`)
+        VALUES (#{uId}, #{aBankcard})
+    </insert>
+
+    <select id="accountInFo" parameterType="int" resultType="account">
+        SELECT
+        sp_account.aid,
+        sp_account.uid,
+        sp_account.abalance,
+        sp_account.abankcard
+        FROM
+        sp_account
+        WHERE
+        sp_account.uid = #{id}
+    </select>
+
+    <delete id="deleteAccountInFo" parameterType="int">
+        DELETE FROM sp_account WHERE sp_account.aid = #{id}
+    </delete>
+
+    <update id="updateAccountInFo" parameterType="account">
+        UPDATE `shop`.`sp_account`
+        <trim prefix="set" suffixOverrides=",">
+            <if test="aBalance != null and aBalance != '' ">`abalance` = #{aBalance},</if>
+            <if test="aBankcard != null and aBankcard != '' ">`abankcard` = #{aBankcard},</if>
+        </trim>
+        WHERE `aid` = #{aId}
+    </update>
+
+    <select id="selectAccountBalance" parameterType="int" resultType="int">
+        SELECT
+        sp_account.abalance
+        FROM
+        sp_account
+        WHERE
+        sp_account.aid = #{id}
+    </select>
+
+</mapper>

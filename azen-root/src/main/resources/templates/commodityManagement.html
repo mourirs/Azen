@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Azen - Administrators Dashboard</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" th:href="@{assets/css/app.min.css}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/styles.css}">
+    <link rel="stylesheet" th:href="@{assets/css/components.css}">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/custom.css}">
+    <link rel="stylesheet" th:href="@{assets/css/element.css}">
+    <link rel="icon" th:href="@{assets/img/favicon.ico}" type="image/png">
+</head>
+
+<body>
+<div class="loader"></div>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        <nav class="navbar navbar-expand-lg main-navbar sticky">
+            <div class="form-inline mr-auto">
+                <ul class="navbar-nav mr-3">
+                    <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                    <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                        <i data-feather="maximize"></i>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="main-sidebar sidebar-style-2">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo"/> <span
+                            class="logo-name">Azen</span>
+                    </a>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="dropdown">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="monitor"></i><span>Dashboard</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" th:href="@{/index}">Azen Dashboard</a></li>
+                            <li><a class="nav-link" th:href="@{/administrator}">Administrator</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="user-check"></i><span>Auth</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" th:href="@{/userManagement}">User Management</a></li>
+                            <li><a class="nav-link" th:href="@{/orderManagement}">Order Management</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="briefcase"></i><span>Commodity</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a class="nav-link" th:href="@{/commodityManagement}">Commodity
+                                Management</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content" id="appvue">
+            <section class="section">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+                        <h4 class="page-title m-b-0">Commodity Management</h4>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a th:href="@{/index}">
+                            <i class="fas fa-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active">Commodity Management</li>
+                </ul>
+                <commodityshow></commodityshow>
+            </section>
+            <div class="settingSidebar">
+                <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+                </a>
+                <div class="settingSidebar-body ps-container ps-theme-default">
+                    <div class=" fade show active">
+                        <div class="setting-panel-header">Setting Panel
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Select Layout</h6>
+                            <div class="selectgroup layout-color w-50">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="value" value="1"
+                                           class="selectgroup-input-radio select-layout" checked>
+                                    <span class="selectgroup-button">Light</span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="value" value="2"
+                                           class="selectgroup-input-radio select-layout">
+                                    <span class="selectgroup-button">Dark</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                            <div class="selectgroup selectgroup-pills sidebar-color">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="1"
+                                           class="selectgroup-input select-sidebar">
+                                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                          data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="2"
+                                           class="selectgroup-input select-sidebar" checked>
+                                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                          data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Color Theme</h6>
+                            <div class="theme-setting-options">
+                                <ul class="choose-theme list-unstyled mb-0">
+                                    <li title="white" class="active">
+                                        <div class="white"></div>
+                                    </li>
+                                    <li title="cyan">
+                                        <div class="cyan"></div>
+                                    </li>
+                                    <li title="black">
+                                        <div class="black"></div>
+                                    </li>
+                                    <li title="purple">
+                                        <div class="purple"></div>
+                                    </li>
+                                    <li title="orange">
+                                        <div class="orange"></div>
+                                    </li>
+                                    <li title="green">
+                                        <div class="green"></div>
+                                    </li>
+                                    <li title="red">
+                                        <div class="red"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <div class="theme-setting-options">
+                                <label class="m-b-0">
+                                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                           id="mini_sidebar_setting">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="control-label p-l-10">Mini Sidebar</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <div class="theme-setting-options">
+                                <label class="m-b-0">
+                                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                           id="sticky_header_setting">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="control-label p-l-10">Sticky Header</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                            <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                                <i class="fas fa-undo"></i> Restore Default
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- General JS Scripts -->
+<script th:src="@{assets/js/app.min.js}"></script>
+<!-- JS Libraies -->
+<!-- Template JS File -->
+<script th:src="@{assets/js/scripts.js}"></script>
+<!-- Custom JS File -->
+<script th:src="@{assets/js/custom.js}"></script>
+<script th:src="@{assets/js/vue.js}"></script>
+<script th:src="@{assets/js/element.js}"></script>
+<script th:src="@{assets/js/axios.js}"></script>
+<script th:src="@{assets/js/dataParse.js}"></script>
+<template id="commodityshow">
+    <div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Commodity List</h4>
+                        <div class="card-header-form">
+                            <form>
+                                <div class="btn-group">
+                                    <button type="button" @click="dialogFormInsertVisible = true"
+                                            class="btn btn-primary"><i class="fas fa-shopping-bag"></i>
+                                    </button>
+                                    <input type="text" class="form-control" placeholder="Search" v-model="search">
+                                    <button type="button" class="btn btn-primary"
+                                            @click="commodityPageInFo(currentPage)"><i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>商品名称</th>
+                                    <th>商品图示</th>
+                                    <th>商品价格</th>
+                                    <th>商品库存</th>
+                                    <th>商品状态</th>
+                                    <th>商品类别</th>
+                                    <th>Edit</th>
+                                </tr>
+                                </thead>
+                                <tr v-if="commodityListInFo.length > 0" v-for="(item,index) in commodityListInFo">
+                                    <td>{{item.coName}}</td>
+                                    <td>
+                                        <el-image
+                                                style="width: 100px; height: 100px"
+                                                :src='"http://localhost/"+item.coImage'
+                                        ></el-image>
+                                    </td>
+                                    <td>{{item.coPrice | showPrice}}</td>
+                                    <td>{{item.coNum}}</td>
+                                    <td>{{statueCommodity(item.coGrounding)}}</td>
+                                    <td>{{item.cyType}}</td>
+                                    <td>
+                                        <a data-toggle="tooltip" title="修改" data-original-title="Edit"><i
+                                                class="fas fa-pencil-alt"
+                                                @click="commodityUpdateInFoShow(index)"></i></a>
+                                        <a data-toggle="tooltip" title="上架" data-placement="top"><i
+                                                class="fas fa-check"
+                                                @click="commodityUpdateUp(index)"></i></a>
+                                        <a data-toggle="tooltip" title="下架" data-placement="top"><i
+                                                class="fas fa-times" @click="commodityUpdateDown(index)"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <el-pagination
+                                layout="prev, pager, next"
+                                :total="total"
+                                :current-page="currentPage"
+                                :page-size="pageSize"
+                                @size-change="handleSizeChange"
+                                @current-change="handleCurrentChange"
+                                v-if="total >= 7"
+                                style="float: left">
+                        </el-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <el-dialog title="添加新商品" :visible.sync="dialogFormInsertVisible" :modal-append-to-body='false'>
+            <el-form ref="form" :model="formInsert" label-width="80px">
+                <el-form-item label="商品名称">
+                    <el-input type="text" v-model="formInsert.coName"></el-input>
+                </el-form-item>
+                <el-form-item label="商品价格">
+                    <el-input type="number" :min="0" v-model="formInsert.coPrice"></el-input>
+                </el-form-item>
+                <el-form-item label="是否上架">
+                    <el-radio v-model="radioFormInsert" label="1">上架</el-radio>
+                    <el-radio v-model="radioFormInsert" label="0">不上架</el-radio>
+                </el-form-item>
+                <el-form-item label="上架数量">
+                    <el-input type="number" :min="0" v-model="formInsert.coNum"></el-input>
+                </el-form-item>
+                <el-form-item label="商品类别">
+                    <el-select v-model="valueFormInsert" placeholder="请选择商品类别"
+                               v-if="commodityCategoryListInFos.length > 0"
+                               style="width:100%">
+                        <el-option
+                                v-for="item in commodityCategoryListInFos"
+                                :key="item.cyId"
+                                :label="item.cyType"
+                                :value="item.cyId">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="商品图示">
+                    <el-upload
+                            class="upload-demo"
+                            action="/uploadImage"
+                            name="upload"
+                            :on-success="fileSuccess"
+                            :limit="1"
+                            list-type="picture">
+                        <el-button size="small" type="primary">点击上传</el-button>
+                        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                    </el-upload>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormInsertVisible = false">取 消</el-button>
+                <el-button type="primary" @click="commodityInsertInFo()" :disabled="!btnFormInsert">确 定</el-button>
+            </div>
+        </el-dialog>
+        <el-dialog title="修改商品" :visible.sync="dialogFormUpdateVisible" :modal-append-to-body='false'>
+            <el-form ref="form" :model="formUpdate" label-width="100px">
+                <el-form-item label="商品名称(谨慎修改)">
+                    <el-input type="text" v-model="formUpdate.coName"></el-input>
+                </el-form-item>
+                <el-form-item label="商品价格">
+                    <el-input type="number" :min="0" v-model="formUpdate.coPrice"></el-input>
+                </el-form-item>
+                <el-form-item label="是否上架">
+                    <el-radio v-model="radioFormUpdate" label="1">上架</el-radio>
+                    <el-radio v-model="radioFormUpdate" label="0">不上架</el-radio>
+                </el-form-item>
+                <el-form-item label="上架数量">
+                    <el-input type="number" :min="0" v-model="formUpdate.coNum"></el-input>
+                </el-form-item>
+                <el-form-item label="商品类别">
+                    <el-select v-model="valueFormUpdate" placeholder="请选择商品类别"
+                               v-if="commodityCategoryListInFos.length > 0"
+                               style="width:100%">
+                        <el-option
+                                v-for="item in commodityCategoryListInFos"
+                                :key="item.cyId"
+                                :label="item.cyType"
+                                :value="item.cyId">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="商品图示">
+                    <el-image
+                            style="width: 100px; height: 100px"
+                            :src='"http://localhost/"+formUpdate.formUpdateImage'
+                    ></el-image>
+                </el-form-item>
+                <el-form-item label="图片修改（可选）">
+                    <el-upload
+                            class="upload-demo"
+                            action="/uploadImage"
+                            name="upload"
+                            :on-success="fileSuccessUpdate"
+                            :limit="1"
+                            list-type="picture">
+                        <el-button size="small" type="primary">点击上传</el-button>
+                        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                    </el-upload>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormUpdateVisible = false">取 消</el-button>
+                <el-button type="primary" @click="commodityUpdateInFo()">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+</template>
+<script>
+
+    const commodityshow = {
+        template: "#commodityshow",
+        data() {
+            return {
+                commodityListInFo: [],
+                currentPage: 1,// 当前页码
+                pageSize: 10,// 每页大小
+                total: 1,
+                commodityCategoryListInFos: [],
+                search: '',
+                dialogFormInsertVisible: false,
+                radioFormInsert: '',
+                valueFormInsert: '',
+                formInsert: {
+                    coName: '',
+                    coPrice: '',
+                    coGrounding: '',
+                    coNum: '',
+                    cyId: '',
+                    coImage: ''
+                },
+                btnFormInsert: true,
+                dialogFormUpdateVisible: false,
+                radioFormUpdate: '',
+                valueFormUpdate: '',
+                formUpdate: {
+                    coName: '',
+                    coPrice: '',
+                    coGrounding: '',
+                    coNum: '',
+                    cyId: '',
+                    coImage: '',
+                    coId: '',
+                    formUpdateImage: '',
+                },
+            };
+        },
+        methods: {
+            commodityPageInFo(pageNumber) {
+                axios({
+                    method: "post",
+                    url: "/commodityListInFo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        pageNumber: pageNumber,
+                        name: this.jiaoyan(this.search)
+                    }
+                }).then((response) => {
+                    this.commodityListInFo = response.data.list;
+                    console.log(this.commodityListInFo);
+                    this.currentPage = response.data.pageNum;
+                    this.pageSize = response.data.pageSize;
+                    this.total = response.data.total;
+                })
+            },
+            commodityCategoryListInFo() {
+                axios.post("/commodityCategoryList").then((response) => {
+                    this.commodityCategoryListInFos = response.data;
+                    console.log(response.data);
+                });
+            },
+            jiaoyan(search) {
+                if (search === '' && search === undefined) {
+                    return '';
+                } else {
+                    return search;
+                }
+            },
+            statueCommodity(data) {
+                if (data === 1) {
+                    return "已上架";
+                } else {
+                    return "已下架";
+                }
+            },
+            handleSizeChange(val) {
+                this.commodityPageInFo(val);
+            },
+            handleCurrentChange(val) {
+                this.commodityPageInFo(val);
+            },
+            commodityUpdateUp(index) {
+                axios({
+                    method: "post",
+                    url: "/commodityUpdateUp",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        id: this.commodityListInFo[index].coId
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.commodityPageInFo(this.currentPage);
+                        this.$notify({
+                            title: '上架成功',
+                            message: '该商品已被上架！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify({
+                            title: '上架失败',
+                            message: '该商品上架失败，请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            },
+            commodityUpdateDown(index) {
+                axios({
+                    method: "post",
+                    url: "/commodityUpdateDown",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        id: this.commodityListInFo[index].coId
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.commodityPageInFo(this.currentPage);
+                        this.$notify({
+                            title: '下架成功',
+                            message: '该商品已被下架！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify({
+                            title: '下架失败',
+                            message: '该商品下架失败，请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            },
+            fileSuccess(response) {
+                if (response.indexOf("jpg") > -1) {
+                    this.formInsert.coImage = response;
+                } else {
+                    this.btnFormInsert = false;
+                }
+            },
+            commodityInsertInFo() {
+                axios({
+                    method: "post",
+                    url: "/commodityInsertInFo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        coName: this.formInsert.coName,
+                        coPrice: this.formInsert.coPrice,
+                        coGrounding: this.radioFormInsert,
+                        coNum: this.formInsert.coNum,
+                        cyId: this.valueFormInsert,
+                        coImage: this.formInsert.coImage,
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.dialogFormInsertVisible = false;
+                        this.commodityPageInFo(this.currentPage);
+                        for (let key in this.formInsert) {
+                            this.formInsert[key] = '';
+                        }
+                        this.$notify({
+                            title: '添加成功',
+                            message: '商品已经添加成功！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify.error({
+                            title: '添加失败',
+                            message: '请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            },
+            fileSuccessUpdate(response) {
+                this.formUpdate.coImage = response;
+            },
+            commodityUpdateInFo() {
+                axios({
+                    method: "post",
+                    url: "/commodityUpdateInFo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        coName: this.formUpdate.coName,
+                        coPrice: this.formUpdate.coPrice,
+                        coGrounding: this.radioFormUpdate,
+                        coNum: this.formUpdate.coNum,
+                        cyId: this.valueFormUpdate,
+                        coImage: this.formUpdate.coImage,
+                        coId: this.formUpdate.coId,
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.dialogFormUpdateVisible = false;
+                        this.commodityPageInFo(this.currentPage);
+                        this.$notify({
+                            title: '修改成功',
+                            message: '商品信息已经修改！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify.error({
+                            title: '修改失败',
+                            message: '请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            },
+            commodityUpdateInFoShow(index) {
+                this.formUpdate.coName = this.commodityListInFo[index].coName;
+                this.formUpdate.coPrice = this.commodityListInFo[index].coPrice;
+                this.radioFormUpdate = this.commodityListInFo[index].coGrounding;
+                this.formUpdate.coNum = this.commodityListInFo[index].coNum;
+                this.formUpdate.formUpdateImage = this.commodityListInFo[index].coImage;
+                this.formUpdate.coImage = this.commodityListInFo[index].coImage;
+                this.formUpdate.coId = this.commodityListInFo[index].coId;
+                this.valueFormUpdate = this.commodityListInFo[index].cyId;
+                this.dialogFormUpdateVisible = true;
+            }
+
+        },
+        mounted() {
+            this.commodityPageInFo(1);
+            this.commodityCategoryListInFo();
+        },
+        filters: {
+            showPrice(price) {
+                return "￥" + price.toFixed(2);
+            }
+        },
+    };
+
+    const appVue = new Vue({
+        el: "#appvue",
+        components: {
+            commodityshow
+        }
+    })
+</script>
+</body>
+
+</html>

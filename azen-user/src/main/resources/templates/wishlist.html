@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-US" class=" yes-js js_active js" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.theme.default.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{assets/css/slick.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{assets/css/settings.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css}">
+    <link rel="stylesheet" th:href="@{assets/css/element.css}">
+    <link rel="icon" th:href="@{images/favicon.png}" type="image/png">
+    <title>Wishlist</title>
+</head>
+<body>
+<div class=" wrapper-container boxed-area">
+    <!--header-->
+    <div class="container container-box-header1">
+        <header id="masthead" class="site-header">
+            <div class="header-hp-1 style-header-hp-1 affix">
+                <div id="js-navbar-fixed" class="menu-desktop">
+                    <div class="menu-desktop-inner">
+                        <!-- Logo -->
+                        <div class="menu-mobile-effect hamburger hamburger--spin">
+                            <div class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </div>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html" title="azen" rel="home">
+                                <img src="images/Logo.png" alt="azen.physcode.com">
+                            </a>
+                        </div>
+                        <div class="space-header"></div>
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <ul class="navmenu">
+                                <li class="menu-item menu-item-has-children">
+                                    <a th:href="@{/index}">Home</a>
+                                </li>
+                                <li class="menu-item menu-item-has-children">
+                                    <a th:href="@{/login}">Account</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item">
+                                            <a th:href="@{/login}">Login/Register</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/information}">Information</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children">
+                                    <a th:href="@{/shop}" class="active">Shop</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item">
+                                            <a th:href="@{/shop}">Shopping</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/wishlist}">Wishlist</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/cart}">Cart</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/orderIF}">Order</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item">
+                                    <a th:href="@{/contact}">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- Header Right -->
+                        <div class="header-right">
+                            <div class="header-wishlist">
+                                <a th:href="@{/wishlist}"><i class="fa fa-heart"></i></a>
+                            </div>
+                            <div class="woocommerce widget_shopping_cart">
+                                <div class="minicart_hover" id="header-mini-cart">
+                                    <a class="cart-items-number" th:href="@{/cart}"><i class="icon-bag"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!--end header-->
+
+    <div class="site page-content">
+        <div class="breadcrumb-contact-us breadcrumb-section section-box">
+            <div class="container breadcrumb-inner">
+                <div class="breadcrumbs-wrapper">
+                    <ul class="phys-breadcrumb">
+                        <li><a th:href="@{/index}" class="home">Home</a></li>
+                        <li>Wishlist</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-area" id="app">
+            <div class="container">
+                <div class="row">
+                    <div class="site-main col-sm-12 full-width">
+                        <div class="woocommerce-wishlist woocommerce">
+                            <div class="entry-content">
+
+
+                                <xiai></xiai>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- #content -->
+</div>
+<!--footer-->
+<div id="wrapper-footer" class="wrapper-footer">
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-4">
+                <div class="textwidget"><p><a href="#"><img
+                        class="alignnone size-full wp-image-100"
+                        src="images/Logo-white.png" alt=""></a></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut
+                        labore et dolore magna aliqua.</p>
+                    <div class="socials"><a href="javascript:void(0)">FACEBOOK</a>&nbsp;&nbsp; <a
+                            href="javascript:void(0)">TWITTER</a>&nbsp;&nbsp; <a
+                            href="javascript:void(0)">INSTAGRAM</a></div>
+                </div>
+            </aside>
+            <aside class="col-md-4 text-footer">
+                <h3 class="widget-title">INFO</h3>
+                <div class="textwidget">
+                    <ul>
+                        <li><i class="zmdi zmdi-home"></i> 999 xxxxx xxxxx , xxxxx , xxxxx
+                        </li>
+                        <li><i class="zmdi zmdi-phone"></i> +9-999-999-999
+                        </li>
+                        <li><i class="zmdi zmdi-email"></i> Azenfashion@999.com
+                        </li>
+                        <li><i class="zmdi zmdi-time"></i> Monday - Saturday: 8:00 am - 18:00 pm
+                            <p class="footer-sunday">
+                                &nbsp;&nbsp;&nbsp;Sunday : Closed
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <aside class="col-md-4 text-footer">
+                <h3 class="widget-title">INSTAGRAM</h3>
+                <div class="textwidget">
+                    <div id="sb_instagram" class="sbi sbi_col_4  sbi_width_resp sbi_small">
+                        <a href="javascript:void(0)"><img src="images/instagram/picter1.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter2.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter3.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter4.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter5.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter6.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter7.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter8.jpg" alt=""></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+<!--end footer-->
+<span class="footer__arrow-top" style="bottom: 30px;">TOP</span>
+<script th:src="@{assets/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{assets/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/js/flexslider.js}"></script>
+<script th:src="@{assets/js/slick.min.js}"></script>
+<script th:src="@{assets/js/owl.carousel.js}"></script>
+<script th:src="@{assets/js/jquery.themepunch.tools.min.js}"></script>
+<script th:src="@{assets/js/jquery.themepunch.revolution.min.js}"></script>
+<script th:src="@{assets/js/theme.js}"></script>
+<script th:src="@{assets/js/vue.js}"></script>
+<script th:src="@{assets/js/element.js}"></script>
+<script th:src="@{assets/js/axios.js}"></script>
+<script th:src="@{assets/js/dataParse.js}"></script>
+<template id="xiai">
+    <div>
+        <form id="yith-wcwl-form"
+              class="woocommerce yith-wcwl-form wishlist-fragment">
+            <!-- WISHLIST TABLE -->
+            <table class="shop_table cart wishlist_table wishlist_view traditional responsive">
+                <thead>
+                <tr>
+                    <th class="product-remove"></th>
+                    <th class="product-thumbnail"></th>
+                    <th class="product-name"><span class="nobr">Product name            </span>
+                    </th>
+                    <th class="product-price">
+                <span class="nobr">
+                    Unit price                </span>
+                    </th>
+
+
+                    <th class="product-stock-status">
+                <span class="nobr">
+                    Stock status                </span>
+                    </th>
+
+                    <th class="product-add-to-cart"></th>
+
+                </tr>
+                </thead>
+                <tbody class="wishlist-items-wrapper">
+                <tr id="yith-wcwl-row-136" data-row-id="136" v-if="aspirations.length > 0"
+                    v-for="(item,index) in aspirations">
+                    <td class="product-remove">
+                        <div>
+                            <a href="javascript:void(0)"
+                               class="remove remove_from_wishlist"
+                               title="Remove this product" @click="deleteAspirationInFo(index)">×</a>
+                        </div>
+                    </td>
+                    <td class="product-thumbnail">
+                        <a href="javascript:void(0)">
+                            <img :src="item.commodity.coImage"
+                                 class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
+                        </a>
+                    </td>
+                    <td class="product-name">
+                        <a href="javascript:void(0)">{{item.commodity.coName}}</a>
+                    </td>
+                    <td class="product-price">
+                    <span class="woocommerce-Price-amount amount"><span
+                            class="woocommerce-Price-currencySymbol"></span>{{item.commodity.coPrice | showPrice}}</span>
+                    </td>
+                    <td class="product-stock-status">
+                        <span class="wishlist-in-stock" v-if="item.commodity.coNum > 0">In Stock</span>
+                        <span class="wishlist-in-stock" v-if="item.commodity.coNum <= 0">Not In Stock</span>
+                    </td>
+                    <td class="product-add-to-cart">
+                        <a href="javascript:void(0)" class="button add_to_cart alt" @click="addCarByOne(index)">Add to Cart</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <el-pagination
+                    layout="prev, pager, next"
+                    :total="total"
+                    :current-page="currentPage"
+                    :page-size="pageSize"
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    v-if="total >= 6"
+            >
+            </el-pagination>
+        </form>
+    </div>
+</template>
+<script>
+
+    const xiai = {
+        template: "#xiai",
+        data() {
+            return {
+                aspirations: [],
+                currentPage: 1,// 当前页码
+                pageSize: 10,// 每页大小
+                total: 1,
+            };
+        },
+        methods: {
+            aspirationPageInfo(pageNumber) {
+                axios({
+                    method: "post",
+                    url: "/aspirationPageInfo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        pageNumber: pageNumber,
+                    }
+                }).then((response) => {
+                    this.aspirations = response.data.list;
+                    this.currentPage = response.data.pageNum;
+                    this.pageSize = response.data.pageSize;
+                    this.total = response.data.total;
+                })
+            },
+            handleSizeChange(val) {
+                this.aspirationPageInfo(val);
+            },
+            handleCurrentChange(val) {
+                this.aspirationPageInfo(val);
+            },
+            deleteAspirationInFo(index) {
+                axios({
+                    method: "post",
+                    url: "/deleteAspirationInFo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        id: this.aspirations[index].commodity.coId
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.aspirationPageInfo(this.currentPage);
+                        this.$notify({
+                            title: '取消心动成功',
+                            message: '已经取消心动！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify.error({
+                            title: '取消心动失败',
+                            message: '请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            },
+            addCarByOne(index) {
+                axios({
+                    method: "post",
+                    url: "/addCar",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        cNum: 1,
+                        coId: this.aspirations[index].coId
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.$notify({
+                            title: '添加成功',
+                            message: '宝贝正在购物车等你！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify.error({
+                            title: '添加失败',
+                            message: '宝贝添加失败，请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            },
+        },
+        mounted() {
+            this.aspirationPageInfo(1);
+        },
+        filters: {
+            showPrice(price) {
+                return "￥" + price.toFixed(2)
+            }
+        },
+    };
+
+    const app = new Vue({
+        el: "#app",
+        components: {xiai}
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.user.dao.AspirationMapper">
+
+    <resultMap id="aspiration" type="aspiration">
+        <id property="asId" column="asid"/>
+        <result property="coId" column="coid"/>
+        <result property="uId" column="uid"/>
+    </resultMap>
+
+    <resultMap id="aspirationCom" type="aspiration" extends="aspiration">
+        <association property="commodity" javaType="commodity">
+            <id column="cmid" property="coId"/>
+            <result column="coname" property="coName"/>
+            <result column="coprice" property="coPrice"/>
+            <result column="cogrounding" property="coGrounding"/>
+            <result column="conum" property="coNum"/>
+            <result column="cyid" property="cyId"/>
+            <result column="coimage" property="coImage"/>
+        </association>
+    </resultMap>
+
+    <insert id="addAspiration" parameterType="aspiration">
+        INSERT INTO `shop`.`sp_aspiration`(`coid`, `uid`) VALUES (#{coId}, #{uId})
+    </insert>
+    <select id="addAspirationCount" parameterType="aspiration" resultType="int">
+        SELECT
+        count(*)
+        FROM
+        sp_aspiration
+        WHERE
+        sp_aspiration.coid = #{coId}
+        AND
+        sp_aspiration.uid = #{uId}
+    </select>
+
+    <select id="aspirationListInFo" parameterType="int" resultMap="aspirationCom">
+        SELECT
+        sp_aspiration.asid,
+        sp_aspiration.coid,
+        sp_aspiration.uid,
+        sp_commodity.coid cmid,
+        sp_commodity.coname,
+        sp_commodity.coprice,
+        sp_commodity.cogrounding,
+        sp_commodity.conum,
+        sp_commodity.cyid,
+        sp_commodity.coimage
+        FROM
+        sp_aspiration LEFT JOIN
+        sp_commodity ON sp_aspiration.coid = sp_commodity.coid
+        WHERE sp_aspiration.uid = #{id}
+    </select>
+
+    <delete id="deleteAspirationInFo" parameterType="int">
+        DELETE FROM sp_aspiration WHERE sp_aspiration.asid = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.user.dao.CarMapper">
+    <resultMap id="car" type="car">
+        <id column="cid" property="cId"/>
+        <result column="uid" property="uId"/>
+        <result column="coid" property="coId"/>
+        <result column="cnum" property="cNum"/>
+    </resultMap>
+
+    <resultMap id="carGoods" type="car" extends="car">
+        <association property="commodity" javaType="commodity">
+            <id column="cmid" property="coId"/>
+            <result column="coname" property="coName"/>
+            <result column="coprice" property="coPrice"/>
+            <result column="cogrounding" property="coGrounding"/>
+            <result column="conum" property="coNum"/>
+            <result column="cyid" property="cyId"/>
+            <result column="coimage" property="coImage"/>
+        </association>
+    </resultMap>
+
+    <insert id="addCar" parameterType="car">
+        INSERT INTO `shop`.`sp_car`(`uid`, `coid`, `cnum`) VALUES (#{uId}, #{coId}, #{cNum})
+    </insert>
+
+    <select id="addCarCount" parameterType="car" resultType="int">
+        SELECT COUNT(*) FROM sp_car WHERE sp_car.uid = #{uId} AND sp_car.coid = #{coId}
+    </select>
+
+    <select id="carId" parameterType="car" resultType="car">
+        SELECT * FROM sp_car WHERE sp_car.uid = #{uId} AND sp_car.coid = #{coId}
+    </select>
+
+    <update id="updateCar" parameterType="car">
+        UPDATE `shop`.`sp_car`
+        SET `cnum`= #{cNum} WHERE `cid`= #{cId}
+    </update>
+
+    <select id="carForUid" parameterType="int" resultMap="carGoods">
+        SELECT
+        sp_car.cid,
+        sp_car.uid,
+        sp_car.coid,
+        sp_car.cnum,
+        sp_commodity.coid cmid,
+        sp_commodity.coname,
+        sp_commodity.coprice,
+        sp_commodity.cogrounding,
+        sp_commodity.conum,
+        sp_commodity.cyid,
+        sp_commodity.coimage
+        FROM
+        sp_car LEFT JOIN
+        sp_commodity ON sp_car.coid = sp_commodity.coid
+        WHERE sp_car.uid = #{id}
+    </select>
+
+    <delete id="deleteCarForCId" parameterType="int">
+        DELETE FROM sp_car WHERE sp_car.cid = #{id}
+    </delete>
+
+    <delete id="deleteCarForIdIsListId" parameterType="java.util.List">
+        DELETE FROM sp_car WHERE sp_car.cid IN
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

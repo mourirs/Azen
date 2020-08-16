@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.user.dao.UserMapper">
+    <select id="userLogin" resultType="boolean" parameterType="user">
+        SELECT * FROM sp_user u
+        <where>
+            AND u.upwd = #{uPwd}
+            <if test="uName != null and uName != '' ">
+                AND u.uname = #{uName}
+            </if>
+            <if test="uEmail != null and uEmail != '' ">
+                AND u.uemail = #{uEmail}
+            </if>
+            AND u.ustatue = 1
+        </where>
+    </select>
+
+    <select id="userLoginInspect" resultType="user" parameterType="user">
+        SELECT * FROM sp_user u
+        <where>
+            AND u.upwd = #{uPwd}
+            <if test="uName != null and uName != '' ">
+                AND u.uname = #{uName}
+            </if>
+            <if test="uEmail != null and uEmail != '' ">
+                AND u.uemail = #{uEmail}
+            </if>
+        </where>
+    </select>
+
+    <select id="userRetrieve" resultType="boolean" parameterType="user">
+        SELECT * FROM sp_user u
+        <where>
+            <if test="uName != null and uName != '' ">
+                AND u.uname = #{uName}
+            </if>
+            <if test="uEmail != null and uEmail != '' ">
+                AND u.uemail = #{uEmail}
+            </if>
+        </where>
+    </select>
+
+    <insert id="userRegister" parameterType="user">
+        INSERT INTO `shop`.`sp_user`(`uname`, `upwd` , `uemail`, `ustatue`)
+        VALUES (#{uName}, #{uPwd},#{uEmail},1)
+    </insert>
+
+    <update id="userResetPwd" parameterType="user">
+        UPDATE `shop`.`sp_user` SET `upwd` = #{uPwd}
+        WHERE `uemail` = #{uEmail}
+    </update>
+
+    <select id="userInFoById" resultType="user" parameterType="int">
+        SELECT
+        sp_user.uid,
+        sp_user.uname,
+        sp_user.uphone,
+        sp_user.uemail,
+        sp_user.ustatue
+        FROM
+        sp_user
+        WHERE
+        sp_user.uid = #{id}
+    </select>
+
+    <update id="userUpdateInFo" parameterType="user">
+        UPDATE `shop`.`sp_user`
+        <trim prefix="set" suffixOverrides=",">
+            <if test="uName != null and uName != '' ">`uname` = #{uName},</if>
+            <if test="uPwd != null and uPwd != '' ">`upwd` = #{uPwd},</if>
+            <if test="uEmail != null and uEmail != '' ">`uemail` = #{uEmail},</if>
+            <if test="uPhone != null and uPhone != '' ">`uphone` = #{uPhone},</if>
+        </trim>
+        WHERE `uid` = #{uId}
+    </update>
+
+    <select id="userPhoneIsUse" parameterType="user" resultType="int">
+        SELECT COUNT(*) FROM `sp_user` WHERE uphone = #{uPhone}
+    </select>
+
+    <select id="userPasswordIsTrue" parameterType="user" resultType="boolean">
+        SELECT
+        *
+        FROM
+        sp_user
+        WHERE
+        sp_user.uid = #{uId} AND sp_user.upwd = #{uPwd}
+    </select>
+</mapper>

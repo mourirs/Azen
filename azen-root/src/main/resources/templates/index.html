@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Azen - Administrators Dashboard</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" th:href="@{assets/css/app.min.css}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/styles.css}">
+    <link rel="stylesheet" th:href="@{assets/css/components.css}">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/custom.css}">
+    <link rel="stylesheet" th:href="@{assets/css/element.css}">
+    <link rel="icon" th:href="@{assets/img/favicon.ico}" type="image/png">
+</head>
+
+<body>
+<div class="loader"></div>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        <nav class="navbar navbar-expand-lg main-navbar sticky">
+            <div class="form-inline mr-auto">
+                <ul class="navbar-nav mr-3">
+                    <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                    <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                        <i data-feather="maximize"></i>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="main-sidebar sidebar-style-2">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo"/> <span
+                            class="logo-name">Azen</span>
+                    </a>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="dropdown active">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="monitor"></i><span>Dashboard</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="active"><a class="nav-link" th:href="@{/index}">Azen Dashboard</a></li>
+                            <li><a class="nav-link" th:href="@{/administrator}">Administrator</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="user-check"></i><span>Auth</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" th:href="@{/userManagement}">User Management</a></li>
+                            <li><a class="nav-link" th:href="@{/orderManagement}">Order Management</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="briefcase"></i><span>Commodity</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" th:href="@{/commodityManagement}">Commodity Management</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content" id="appvue">
+            <section class="section">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+                        <h4 class="page-title m-b-0">Azen Dashboard</h4>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a th:href="@{/index}">
+                            <i class="fas fa-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active">Azen Dashboard</li>
+                </ul>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="info-box7-block">
+                                    <h6 class="m-b-20 text-right">订单总数</h6>
+                                    <h4 class="text-right"><i
+                                            class="fas fa-cart-plus pull-left bg-indigo c-icon"></i><span>{{orderSum}}</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="info-box7-block">
+                                    <h6 class="m-b-20 text-right">注册用户</h6>
+                                    <h4 class="text-right"><i class="fas fa-users pull-left bg-cyan c-icon"></i><span>{{userSum}}</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="info-box7-block">
+                                    <h6 class="m-b-20 text-right">库存剩余</h6>
+                                    <h4 class="text-right"><i
+                                            class="fas fa-ticket-alt pull-left bg-deep-orange c-icon"></i><span>{{commoditySum}}</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="info-box7-block">
+                                    <h6 class="m-b-20 text-right">总收入</h6>
+                                    <h4 class="text-right"><i
+                                            class="fas fa-dollar-sign pull-left bg-green c-icon"></i><span>{{profitSum | showPrice}}</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-8 col-md-12 col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>收益图表</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <div id="revenue"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-12 col-lg-4">
+                        <div class="card l-bg-purple">
+                            <div class="card-body">
+                                <div class="text-white">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-5">
+                                            <h4 class="mb-0 font-26 text-white">xxx</h4>
+                                            <p class="mb-2 text-white">Avg Sales Per Month</p>
+                                            <p class="mb-0 text-white">
+                                                <span class="font-20">+xx.xx% </span>Increase
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 col-lg-7">
+                                            <div class="sparkline-bar p-t-50"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card l-bg-cyan-dark">
+                            <div class="card-body">
+                                <div class="text-white">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-5">
+                                            <h4 class="mb-0 font-26 text-white">xxx</h4>
+                                            <p class="mb-2 text-white">Avg new Cust Per Month</p>
+                                            <p class="mb-0 text-white">
+                                                <span class="font-20">+xx.xx%</span> Increase
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 col-lg-7">
+                                            <div class="sparkline-inline p-t-50"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" v-show="showCarts">
+                    <div class="col-12 col-sm-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="amchart1" class="amChartHeight"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="amchart2" class="amChartHeight"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="settingSidebar">
+                <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+                </a>
+                <div class="settingSidebar-body ps-container ps-theme-default">
+                    <div class=" fade show active">
+                        <div class="setting-panel-header">Setting Panel
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Select Layout</h6>
+                            <div class="selectgroup layout-color w-50">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="value" value="1"
+                                           class="selectgroup-input-radio select-layout" checked>
+                                    <span class="selectgroup-button">Light</span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="value" value="2"
+                                           class="selectgroup-input-radio select-layout">
+                                    <span class="selectgroup-button">Dark</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                            <div class="selectgroup selectgroup-pills sidebar-color">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="1"
+                                           class="selectgroup-input select-sidebar">
+                                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                          data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="2"
+                                           class="selectgroup-input select-sidebar" checked>
+                                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                          data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Color Theme</h6>
+                            <div class="theme-setting-options">
+                                <ul class="choose-theme list-unstyled mb-0">
+                                    <li title="white" class="active">
+                                        <div class="white"></div>
+                                    </li>
+                                    <li title="cyan">
+                                        <div class="cyan"></div>
+                                    </li>
+                                    <li title="black">
+                                        <div class="black"></div>
+                                    </li>
+                                    <li title="purple">
+                                        <div class="purple"></div>
+                                    </li>
+                                    <li title="orange">
+                                        <div class="orange"></div>
+                                    </li>
+                                    <li title="green">
+                                        <div class="green"></div>
+                                    </li>
+                                    <li title="red">
+                                        <div class="red"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <div class="theme-setting-options">
+                                <label class="m-b-0">
+                                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                           id="mini_sidebar_setting">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="control-label p-l-10">Mini Sidebar</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <div class="theme-setting-options">
+                                <label class="m-b-0">
+                                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                           id="sticky_header_setting">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="control-label p-l-10">Sticky Header</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                            <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                                <i class="fas fa-undo"></i> Restore Default
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- General JS Scripts -->
+<script th:src="@{assets/js/app.min.js}"></script>
+<!-- JS Libraies -->
+<script th:src="@{assets/bundles/apexcharts/apexcharts.min.js}"></script>
+<script th:src="@{assets/bundles/amcharts4/core.js}"></script>
+<script th:src="@{assets/bundles/amcharts4/charts.js}"></script>
+<script th:src="@{assets/bundles/amcharts4/animated.js}"></script>
+<script th:src="@{assets/bundles/jquery.sparkline.min.js}"></script>
+<!-- Page Specific JS File -->
+<script th:src="@{assets/js/page/index.js}"></script>
+<!-- Template JS File -->
+<script th:src="@{assets/js/scripts.js}"></script>
+<!-- Custom JS File -->
+<script th:src="@{assets/js/custom.js}"></script>
+<script th:src="@{assets/js/vue.js}"></script>
+<script th:src="@{assets/js/element.js}"></script>
+<script th:src="@{assets/js/axios.js}"></script>
+<script th:src="@{assets/js/dataParse.js}"></script>
+<script>
+    const appVue = new Vue({
+        el: "#appvue",
+        data() {
+            return {
+                showCarts: false,
+                orderSum: 0,
+                userSum: 0,
+                commoditySum: 0,
+                profitSum: 0
+            }
+        },
+        methods: {
+            dashboard() {
+                axios.post("/orderCount").then((response) => {
+                    this.orderSum = response.data;
+                });
+                axios.post("/userCount").then((response) => {
+                    this.userSum = response.data;
+                });
+                axios.post("/commodityCount").then((response) => {
+                    this.commoditySum = response.data;
+                });
+                axios.post("/profitSum").then((response) => {
+                    this.profitSum = response.data;
+                });
+            }
+        },
+        mounted() {
+            this.dashboard();
+        },
+        filters: {
+            showPrice(price) {
+                return "￥" + price.toFixed(2)
+            }
+        },
+    })
+</script>
+</body>
+
+</html>

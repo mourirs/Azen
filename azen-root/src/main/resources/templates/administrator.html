@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Azen - Administrators</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" th:href="@{assets/css/app.min.css}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/styles.css}">
+    <link rel="stylesheet" th:href="@{assets/css/components.css}">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/custom.css}">
+    <link rel="stylesheet" th:href="@{assets/css/element.css}">
+    <link rel="icon" th:href="@{assets/img/favicon.ico}" type="image/png">
+</head>
+
+<body>
+<div class="loader"></div>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        <nav class="navbar navbar-expand-lg main-navbar sticky">
+            <div class="form-inline mr-auto">
+                <ul class="navbar-nav mr-3">
+                    <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                    <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                        <i data-feather="maximize"></i>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="main-sidebar sidebar-style-2">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo"/> <span
+                            class="logo-name">Azen</span>
+                    </a>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="dropdown active">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="monitor"></i><span>Dashboard</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" th:href="@{/index}">Azen Dashboard</a></li>
+                            <li class="active"><a class="nav-link" th:href="@{/administrator}">Administrator</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="user-check"></i><span>Auth</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" th:href="@{/userManagement}">User Management</a></li>
+                            <li><a class="nav-link" th:href="@{/orderManagement}">Order Management</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                                data-feather="briefcase"></i><span>Commodity</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" th:href="@{/commodityManagement}">Commodity Management</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content" id="appvue">
+            <section class="section">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+                        <h4 class="page-title m-b-0">Azen Administrators</h4>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a th:href="@{/index}">
+                            <i class="fas fa-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active">Azen Administrators</li>
+                </ul>
+                <adminshow></adminshow>
+            </section>
+            <div class="settingSidebar">
+                <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+                </a>
+                <div class="settingSidebar-body ps-container ps-theme-default">
+                    <div class=" fade show active">
+                        <div class="setting-panel-header">Setting Panel
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Select Layout</h6>
+                            <div class="selectgroup layout-color w-50">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="value" value="1"
+                                           class="selectgroup-input-radio select-layout" checked>
+                                    <span class="selectgroup-button">Light</span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="value" value="2"
+                                           class="selectgroup-input-radio select-layout">
+                                    <span class="selectgroup-button">Dark</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                            <div class="selectgroup selectgroup-pills sidebar-color">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="1"
+                                           class="selectgroup-input select-sidebar">
+                                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                          data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="2"
+                                           class="selectgroup-input select-sidebar" checked>
+                                    <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                          data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <h6 class="font-medium m-b-10">Color Theme</h6>
+                            <div class="theme-setting-options">
+                                <ul class="choose-theme list-unstyled mb-0">
+                                    <li title="white" class="active">
+                                        <div class="white"></div>
+                                    </li>
+                                    <li title="cyan">
+                                        <div class="cyan"></div>
+                                    </li>
+                                    <li title="black">
+                                        <div class="black"></div>
+                                    </li>
+                                    <li title="purple">
+                                        <div class="purple"></div>
+                                    </li>
+                                    <li title="orange">
+                                        <div class="orange"></div>
+                                    </li>
+                                    <li title="green">
+                                        <div class="green"></div>
+                                    </li>
+                                    <li title="red">
+                                        <div class="red"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <div class="theme-setting-options">
+                                <label class="m-b-0">
+                                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                           id="mini_sidebar_setting">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="control-label p-l-10">Mini Sidebar</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="p-15 border-bottom">
+                            <div class="theme-setting-options">
+                                <label class="m-b-0">
+                                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                           id="sticky_header_setting">
+                                    <span class="custom-switch-indicator"></span>
+                                    <span class="control-label p-l-10">Sticky Header</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                            <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                                <i class="fas fa-undo"></i> Restore Default
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- General JS Scripts -->
+<script th:src="@{assets/js/app.min.js}"></script>
+<!-- JS Libraies -->
+<!-- Page Specific JS File -->
+<!-- Template JS File -->
+<script th:src="@{assets/js/scripts.js}"></script>
+<!-- Custom JS File -->
+<script th:src="@{assets/js/custom.js}"></script>
+<script th:src="@{assets/js/vue.js}"></script>
+<script th:src="@{assets/js/element.js}"></script>
+<script th:src="@{assets/js/axios.js}"></script>
+<script th:src="@{assets/js/dataParse.js}"></script>
+<template id="adminshow">
+    <div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Administrators List</h4>
+                        <div class="card-header-form">
+                            <form>
+                                <div class="btn-group">
+                                    <button type="button" @click="dialogFormInsertVisible = true"
+                                            class="btn btn-primary"><i class="fas fa-user-plus"></i>
+                                    </button>
+                                    <input type="text" class="form-control" placeholder="Search" v-model="search">
+                                    <button type="button" class="btn btn-primary"
+                                            @click="adminPageInFo(currentPage)"><i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>员工账号</th>
+                                    <th>员工姓名</th>
+                                    <th>员工邮箱</th>
+                                    <th>创建时间</th>
+                                    <th>Edit</th>
+                                </tr>
+                                </thead>
+                                <tr v-if="adminListInFo.length > 0" v-for="(item,index) in adminListInFo">
+                                    <td>{{item.adAcct}}</td>
+                                    <td>{{item.adName}}</td>
+                                    <td>{{item.adEmail}}</td>
+                                    <td>{{item.adTime}}</td>
+                                    <td>
+                                        <a data-toggle="tooltip" title="" data-original-title="Edit"><i
+                                                class="fas fa-pencil-alt"
+                                                @click="adminUpdateDialog(index)"></i></a>
+                                        <a data-toggle="tooltip" title="" data-original-title="Delete"><i
+                                                class="far fa-trash-alt" @click="adminDeleteInFo(index)"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <el-pagination
+                                layout="prev, pager, next"
+                                :total="total"
+                                :current-page="currentPage"
+                                :page-size="pageSize"
+                                @size-change="handleSizeChange"
+                                @current-change="handleCurrentChange"
+                                v-if="total >= 7"
+                                style="float: left">
+                        </el-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <el-dialog title="添加新员工" :visible.sync="dialogFormInsertVisible" :modal-append-to-body='false'>
+            <el-form ref="form" :model="form" label-width="80px">
+                <el-form-item label="员工账号">
+                    <el-input type="text" v-model="form.adAcct"></el-input>
+                </el-form-item>
+                <el-form-item label="员工姓名">
+                    <el-input type="text" v-model="form.adName"></el-input>
+                </el-form-item>
+                <el-form-item label="员工密码">
+                    <el-input type="password" v-model="form.adPawd"></el-input>
+                </el-form-item>
+                <el-form-item label="员工邮箱">
+                    <el-input type="email" v-model="form.adEmail"></el-input>
+                </el-form-item>
+                <el-form-item label="创建时间">
+                    <el-col :span="11" style="padding-left: 1px">
+                        <el-date-picker type="date" placeholder="选择日期" v-model="form.date1"
+                                        style="width: 100%;"
+                                        value-format="yyyy-MM-dd"
+                                        format="yyyy-MM-dd"></el-date-picker>
+                    </el-col>
+                    <el-col :span="11">
+                        <el-time-picker placeholder="选择时间" value-format="HH:mm" format="HH:mm"
+                                        v-model="form.date2" style="width: 100%;"></el-time-picker>
+                    </el-col>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormInsertVisible = false">取 消</el-button>
+                <el-button type="primary" @click="onSubmit()">确 定</el-button>
+            </div>
+        </el-dialog>
+        <el-dialog title="修改员工信息" :visible.sync="dialogFormUpdateVisible" :modal-append-to-body='false'>
+            <el-form ref="form" :model="formUpdate" label-width="80px">
+                <el-form-item label="员工账号">
+                    <el-input type="text" v-model="formUpdate.adAcct"></el-input>
+                </el-form-item>
+                <el-form-item label="员工姓名">
+                    <el-input type="text" v-model="formUpdate.adName"></el-input>
+                </el-form-item>
+                <el-form-item label="员工密码">
+                    <el-input type="password" v-model="formUpdate.adPawd"></el-input>
+                </el-form-item>
+                <el-form-item label="员工邮箱">
+                    <el-input type="email" v-model="formUpdate.adEmail"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormUpdateVisible = false">取 消</el-button>
+                <el-button type="primary" @click="adminUpdateInFo()">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+</template>
+<script>
+    const adminshow = {
+        template: "#adminshow",
+        data() {
+            return {
+                adminListInFo: [],
+                dialogFormInsertVisible: false,
+                dialogFormUpdateVisible: false,
+                form: {
+                    adAcct: '',
+                    adName: '',
+                    adPawd: '',
+                    adEmail: '',
+                    date1: '',
+                    date2: '',
+                },
+                formUpdate: {
+                    adId: '',
+                    adAcct: '',
+                    adName: '',
+                    adPawd: '',
+                    adEmail: '',
+                },
+                currentPage: 1,// 当前页码
+                pageSize: 10,// 每页大小
+                total: 1,
+                search: ''
+            };
+        },
+        methods: {
+            adminPageInFo(pageNumber) {
+                axios({
+                    method: "post",
+                    url: "/adminListInFo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        pageNumber: pageNumber,
+                        name: this.jiaoyan(this.search)
+                    }
+                }).then((response) => {
+                    this.adminListInFo = response.data.list;
+                    this.currentPage = response.data.pageNum;
+                    this.pageSize = response.data.pageSize;
+                    this.total = response.data.total;
+                })
+            },
+            onSubmit() {
+                axios({
+                    method: "post",
+                    url: "/adminInsertInFo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        adAcct: this.form.adAcct,
+                        adName: this.form.adName,
+                        adPawd: this.form.adPawd,
+                        adEmail: this.form.adEmail,
+                        adTime: this.form.date1 + " " + this.form.date2,
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.dialogFormInsertVisible = false;
+                        this.adminPageInFo(this.currentPage);
+                        for (let key in this.form) {
+                            this.form[key] = ''
+                        }
+                        this.$notify({
+                            title: '添加成功',
+                            message: '请告知此员工他本人的信息！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify.error({
+                            title: '添加失败',
+                            message: '请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            },
+            jiaoyan(search) {
+                if (search === '' && search === undefined) {
+                    return '';
+                } else {
+                    return search;
+                }
+            },
+            handleSizeChange(val) {
+                this.adminPageInFo(val);
+            },
+            handleCurrentChange(val) {
+                this.adminPageInFo(val);
+            },
+            adminDeleteInFo(index) {
+                axios({
+                    method: "post",
+                    url: "/adminDeleteInFo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        id: this.adminListInFo[index].adId,
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.adminPageInFo(this.currentPage);
+                        this.$notify({
+                            title: '删除成功',
+                            message: '删除员工信息成功！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify.error({
+                            title: '删除失败',
+                            message: '请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            },
+            adminUpdateDialog(index) {
+                this.formUpdate.adAcct = this.adminListInFo[index].adAcct;
+                this.formUpdate.adName = this.adminListInFo[index].adName;
+                this.formUpdate.adPawd = this.adminListInFo[index].adPawd;
+                this.formUpdate.adEmail = this.adminListInFo[index].adEmail;
+                this.formUpdate.adId = this.adminListInFo[index].adId;
+                this.dialogFormUpdateVisible = true;
+            },
+            adminUpdateInFo() {
+                axios({
+                    method: "post",
+                    url: "/adminUpdateInFo",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        adAcct: this.formUpdate.adAcct,
+                        adName: this.formUpdate.adName,
+                        adPawd: this.formUpdate.adPawd,
+                        adEmail: this.formUpdate.adEmail,
+                        adId: this.formUpdate.adId,
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        this.dialogFormUpdateVisible = false;
+                        this.adminPageInFo(this.currentPage);
+                        this.$notify({
+                            title: '修改成功',
+                            message: '请告知此员工他本人信息变更情况！',
+                            position: 'bottom-right'
+                        });
+                    } else {
+                        this.$notify.error({
+                            title: '修改失败',
+                            message: '请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            }
+        },
+        mounted() {
+            this.adminPageInFo(1);
+        }
+    };
+    const appvue = new Vue({
+        el: "#appvue",
+        components: {adminshow}
+    })
+</script>
+</body>
+
+</html>

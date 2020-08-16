@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.root.dao.OrderMapper">
+    <resultMap id="orderAddress" type="order">
+        <id column="oid" property="oId"/>
+        <result column="uid" property="uId"/>
+        <result column="onumber" property="oNumber"/>
+        <result column="ocratetime" property="oCrateTime"/>
+        <result column="ogold" property="oGold"/>
+        <result column="aid" property="aId"/>
+        <result column="oname" property="oName"/>
+        <result column="oprice" property="oPrice"/>
+        <result column="onum" property="oNum"/>
+        <result column="ostatue" property="oStatue"/>
+        <result column="coimage" property="coImage"/>
+        <association property="address" javaType="address">
+            <id column="arid" property="arId"/>
+            <result column="uids" property="uId"/>
+            <result column="area" property="area"/>
+            <result column="detailedarea" property="detailedArea"/>
+            <result column="postalcode" property="postalCode"/>
+            <result column="consignee" property="consignee"/>
+            <result column="consigneephone" property="consigneePhone"/>
+        </association>
+    </resultMap>
+
+    <select id="orderListInFo" resultMap="orderAddress" parameterType="string">
+        SELECT
+        sp_order.oid,
+        sp_order.uid,
+        sp_order.onumber,
+        sp_order.ocratetime,
+        sp_order.ogold,
+        sp_order.aid,
+        sp_order.oname,
+        sp_order.oprice,
+        sp_order.onum,
+        sp_order.ostatue,
+        sp_address.arid,
+        sp_address.uid uids,
+        sp_address.area,
+        sp_address.detailedarea,
+        sp_address.postalcode,
+        sp_address.consignee,
+        sp_address.consigneephone,
+        sp_commodity.coimage
+        FROM
+        sp_order
+        LEFT JOIN sp_address ON sp_order.aid = sp_address.arid
+        LEFT JOIN sp_commodity ON sp_order.oname = sp_commodity.coname
+        <where>
+            <if test="name != null and name != '' ">
+                AND sp_order.oname like concat("%",#{name},"%")
+            </if>
+        </where>
+    </select>
+</mapper>

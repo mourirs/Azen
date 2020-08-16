@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.user.dao.CommodityCategoryMapper">
+    <select id="commodityCategoryList" resultType="commodityCategory">
+        SELECT
+        shop.sp_commoditycategory.cyid,
+        shop.sp_commoditycategory.cytype
+        FROM
+        shop.sp_commoditycategory
+    </select>
+</mapper>

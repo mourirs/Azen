@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-US" class=" yes-js js_active js" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/material-design-iconic-font.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.theme.default.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{assets/css/slick.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{assets/css/settings.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css}">
+    <link rel="stylesheet" th:href="@{assets/css/element.css}">
+    <link rel="icon" th:href="@{images/favicon.png}" type="image/png">
+    <title>Checkout</title>
+</head>
+<body>
+<div class=" wrapper-container boxed-area">
+    <!--header-->
+    <div class="container container-box-header1">
+        <header id="masthead" class="site-header">
+            <div class="header-hp-1 style-header-hp-1 affix">
+                <div id="js-navbar-fixed" class="menu-desktop">
+                    <div class="menu-desktop-inner">
+                        <!-- Logo -->
+                        <div class="menu-mobile-effect hamburger hamburger--spin">
+                            <div class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </div>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html" title="azen" rel="home">
+                                <img src="images/Logo.png" alt="azen.physcode.com">
+                            </a>
+                        </div>
+                        <div class="space-header"></div>
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <ul class="navmenu">
+                                <li class="menu-item menu-item-has-children">
+                                    <a th:href="@{/index}">Home</a>
+                                </li>
+                                <li class="menu-item menu-item-has-children">
+                                    <a th:href="@{/login}">Account</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item">
+                                            <a th:href="@{/login}">Login/Register</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/information}">Information</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children">
+                                    <a th:href="@{/shop}" class="active">Shop</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item">
+                                            <a th:href="@{/shop}">Shopping</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/wishlist}">Wishlist</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/cart}">Cart</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a th:href="@{/orderIF}">Order</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item">
+                                    <a th:href="@{/contact}">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- Header Right -->
+                        <div class="header-right">
+                            <div class="header-wishlist">
+                                <a th:href="@{/wishlist}"><i class="fa fa-heart"></i></a>
+                            </div>
+                            <div class="woocommerce widget_shopping_cart">
+                                <div class="minicart_hover" id="header-mini-cart">
+                                    <a class="cart-items-number" th:href="@{/cart}"><i class="icon-bag"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!--end header-->
+
+    <div class="site page-content">
+        <div class="breadcrumb-contact-us breadcrumb-section section-box">
+            <div class="container breadcrumb-inner">
+                <div class="breadcrumbs-wrapper">
+                    <ul class="phys-breadcrumb">
+                        <li><a th:href="@{index}" class="home">Home</a></li>
+                        <li>Checkout</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-area" id="app">
+            <div class="container">
+                <div class="row">
+                    <div class="site-main col-sm-12 full-width">
+                        <div class="entry-content">
+                            <div class="woocommerce">
+                                <ddtj></ddtj>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- #content -->
+</div>
+<!--footer-->
+<div id="wrapper-footer" class="wrapper-footer">
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-4">
+                <div class="textwidget"><p><a href="#"><img
+                        class="alignnone size-full wp-image-100"
+                        src="images/Logo-white.png" alt=""></a></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut
+                        labore et dolore magna aliqua.</p>
+                    <div class="socials"><a href="javascript:void(0)">FACEBOOK</a>&nbsp;&nbsp; <a
+                            href="javascript:void(0)">TWITTER</a>&nbsp;&nbsp; <a
+                            href="javascript:void(0)">INSTAGRAM</a></div>
+                </div>
+            </aside>
+            <aside class="col-md-4 text-footer">
+                <h3 class="widget-title">INFO</h3>
+                <div class="textwidget">
+                    <ul>
+                        <li><i class="zmdi zmdi-home"></i> 999 xxxxx xxxxx , xxxxx , xxxxx
+                        </li>
+                        <li><i class="zmdi zmdi-phone"></i> +9-999-999-999
+                        </li>
+                        <li><i class="zmdi zmdi-email"></i> Azenfashion@999.com
+                        </li>
+                        <li><i class="zmdi zmdi-time"></i> Monday - Saturday: 8:00 am - 18:00 pm
+                            <p class="footer-sunday">
+                                &nbsp;&nbsp;&nbsp;Sunday : Closed
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <aside class="col-md-4 text-footer">
+                <h3 class="widget-title">INSTAGRAM</h3>
+                <div class="textwidget">
+                    <div id="sb_instagram" class="sbi sbi_col_4  sbi_width_resp sbi_small">
+                        <a href="javascript:void(0)"><img src="images/instagram/picter1.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter2.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter3.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter4.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter5.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter6.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter7.png" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/instagram/picter8.jpg" alt=""></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+<!--end footer-->
+<span class="footer__arrow-top" style="bottom: 30px;">TOP</span>
+<script th:src="@{assets/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{assets/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/js/flexslider.js}"></script>
+<script th:src="@{assets/js/slick.min.js}"></script>
+<script th:src="@{assets/js/owl.carousel.js}"></script>
+<script th:src="@{assets/js/jquery.themepunch.tools.min.js}"></script>
+<script th:src="@{assets/js/jquery.themepunch.revolution.min.js}"></script>
+<script th:src="@{assets/js/theme.js}"></script>
+<script th:src="@{assets/js/vue.js}"></script>
+<script th:src="@{assets/js/element.js}"></script>
+<script th:src="@{assets/js/axios.js}"></script>
+<script th:src="@{assets/js/dataParse.js}"></script>
+<template id="ddtj">
+    <div>
+        <form name="checkout" class="checkout woocommerce-checkout"
+              novalidate="novalidate">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="row" id="customer_details">
+                        <div class="col-md-6 col-12">
+                            <div class="woocommerce-billing-fields">
+                                <h3>Billing details</h3>
+                            </div>
+                            <div class="woocommerce-account-fields">
+                                <el-select v-model="value" placeholder="请选择收货地址" v-if="address.length > 0"
+                                           style="width:100%">
+                                    <el-option
+                                            v-for="item in address"
+                                            :key="item.arId"
+                                            :label="addressHandle(item)"
+                                            :value="item.arId">
+                                    </el-option>
+                                </el-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h3 id="order_review_heading">Your order</h3>
+                    <div id="order_review" class="woocommerce-checkout-review-order">
+                        <table class="shop_table woocommerce-checkout-review-order-table">
+                            <tbody>
+                            <tr>
+                                <th>Product</th>
+                                <th>Total</th>
+                            </tr>
+                            <tr class="cart_item" v-for="(item,index) in orderInFo" v-if="orderInFo.length > 0">
+                                <td class="product-name">
+                                    <div class="review-wrap">
+                                        <span class="cart_item_title">{{item.commodity.coName}}</span>
+                                        <span class="product-quantity">× {{item.cnum}}</span></div>
+                                </td>
+                                <td class="product-total">
+                                    <span class="woocommerce-Price-amount amount"><span
+                                            class="woocommerce-Price-currencySymbol"></span>{{item.commodity.coPrice * item.cnum | showPrice}}</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr class="order-total">
+                                <th>Total</th>
+                                <td><strong><span
+                                        class="woocommerce-Price-amount amount"><span
+                                        class="woocommerce-Price-currencySymbol"></span>{{gwczje | showPrice}}</span></strong>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+
+                        <div id="payment" class="woocommerce-checkout-payment">
+                            <ul class="wc_payment_methods payment_methods methods">
+                                <li class="wc_payment_method payment_method_cheque">
+                                    <input id="payment_method_cheque" type="radio"
+                                           class="input-radio" name="payment_method" :value="1" v-model="fkzt">
+                                    <label for="payment_method_cheque">
+                                        直接银行转帐&nbsp;&nbsp;&nbsp;您的余额：{{aBalances | showPrice}}{{yebz()}}</label>
+                                    <div class="payment_box payment_method_cheque">
+                                        <p>将款项直接存入我们的银行帐户。请使用您的订单ID作为付款参考。在我们的帐户中的资金清除之前，将不会发货您的订单。
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wc_payment_method payment_method_paypal">
+                                    <input id="payment_method_paypal" type="radio"
+                                           class="input-radio" name="payment_method"
+                                           value="paypal"
+                                           data-order_button_text="Proceed to PayPal" :value="0" v-model="fkzt">
+                                    <label for="payment_method_paypal">
+                                        货到付款 </label>
+                                    <div class="payment_box payment_method_paypal">
+                                        <p>货到付款</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="form-row place-order">
+                                <div class="woocommerce-terms-and-conditions-wrapper">
+                                    <div class="woocommerce-privacy-policy-text">
+                                        <p>您的个人数据将用于处理您的订单，支持您在整个网站上的体验以及用于我们的隐私政策中所述的其他目的。</p>
+                                    </div>
+                                </div>
+                                <button type="button" class="button alt"
+                                        name="woocommerce_checkout_place_order"
+                                        id="place_order" value="Place order"
+                                        data-value="Place order"
+                                        :disabled="!createBtn()"
+                                        @click="createOrder()"
+                                >Place order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</template>
+<script>
+
+    const ddtj = {
+        template: "#ddtj",
+        data() {
+            return {
+                value: '',
+                address: {},
+                orderInFo: [],
+                orderInFoArray: [],
+                gwczje: 0,
+                aBalances: 0,
+                fkzt: 1
+            };
+        }, methods: {
+            createBtn() {
+                if (this.fkzt === 1) {
+                    return this.aBalances >= this.gwczje;
+                } else {
+                    return true;
+                }
+            },
+            addressAllInFo() {
+                axios.post("/addressList").then((response) => {
+                    this.address = response.data;
+                });
+                axios.post("/accountInFo").then((response) => {
+                    this.aBalances = response.data.map(function (value) {
+                        if (value.abalance != null) {
+                            return parseInt(value.abalance);
+                        } else {
+                            return 0;
+                        }
+                    }).reduce(function (pre, n) {
+                        return pre + n;
+                    })
+                })
+            },
+            addressHandle(value) {
+                return "收件人：" + value.consignee + " " +
+                    "电话：" + value.consigneePhone + " " +
+                    "住址：" + value.area + " " +
+                    "详细住址：" + value.detailedArea;
+            },
+            createOrder() {
+                let order = JSON.stringify(this.orderInFoArrayCopy());
+                axios({
+                    method: "post",
+                    url: "/addOrderInFos",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        order: order
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        sessionStorage.removeItem("shoppingCar");
+                        if (this.fkzt === 1) {
+                            this.koukuan();
+                        }
+                        window.location.replace("http://localhost/orderIF")
+                    } else {
+                        this.$notify({
+                            title: '订单创建失败',
+                            message: '请稍后重试！',
+                            position: 'bottom-right'
+                        });
+                    }
+                });
+            },
+            orderInFoArrayCopy() {
+                let orderArray = [];
+                for (let i = 0; i < this.orderInFo.length; i++) {
+                    let order = {
+                        cId: '',
+                        oNumber: '',
+                        oGold: '',
+                        aId: '',
+                        oName: '',
+                        oPrice: '',
+                        oNum: '',
+                        oStatue: this.fkzt,
+                        coId: '',
+                        coNum: ''
+                    };
+                    order.cId = this.orderInFo[i].cid;
+                    order.oNumber = this.orderNumber();
+                    order.oGold = this.orderInFo[i].cnum * this.orderInFo[i].commodity.coPrice;
+                    order.aId = this.value;
+                    order.oName = this.orderInFo[i].commodity.coName;
+                    order.oPrice = this.orderInFo[i].commodity.coPrice;
+                    order.oNum = this.orderInFo[i].cnum;
+                    order.coId = this.orderInFo[i].coId;
+                    order.coNum = this.orderInFo[i].commodity.coNum - this.orderInFo[i].cnum;
+                    orderArray.push(order);
+                }
+                return orderArray;
+            },
+            orderNumber() {
+                let now = new Date();
+                let year = now.getFullYear();       //年
+                let month = now.getMonth() + 1;     //月
+                let day = now.getDate();            //日
+                let hh = now.getHours();            //时
+                let mm = now.getMinutes();          //分
+                let ss = now.getSeconds();           //秒
+                let clock = year + "";
+                if (month < 10)
+                    clock += "0";
+
+                clock += month + "";
+
+                if (day < 10)
+                    clock += "0";
+
+                clock += day + "";
+
+                if (hh < 10)
+                    clock += "0";
+
+                clock += hh + "";
+                if (mm < 10) clock += '0';
+                clock += mm + "";
+
+                if (ss < 10) clock += '0';
+                clock += ss;
+                return (clock);
+            },
+            yebz() {
+                if (this.aBalances < this.gwczje) {
+                    return "余额不足，请充值";
+                } else {
+                }
+            },
+            koukuan() {
+                axios({
+                    method: "post",
+                    url: "/updateAccountInFos",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        aBalance: this.aBalances - this.gwczje,
+                    }
+                })
+            }
+        },
+        mounted() {
+            this.addressAllInFo();
+            this.orderInFo = JSON.parse(sessionStorage.getItem('shoppingCar'));
+            console.log(this.orderInFo);
+            this.gwczje = this.orderInFo.map(function (value) {
+                return value.cnum * value.commodity.coPrice;
+            }).reduce(function (pre, n) {
+                return pre + n;
+            });
+        },
+        filters: {
+            showPrice(price) {
+                return "￥" + price.toFixed(2)
+            }
+        },
+    };
+
+    const app = new Vue({
+        el: "#app",
+        components: {
+            ddtj
+        }
+    });
+</script>
+</body>
+</html>

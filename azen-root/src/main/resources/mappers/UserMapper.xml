@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.azen.root.dao.UserMapper">
+    <select id="userListInFo" parameterType="string" resultType="user">
+        SELECT
+        sp_user.uid,
+        sp_user.uname,
+        sp_user.uphone,
+        sp_user.uemail,
+        sp_user.ustatue
+        FROM
+        sp_user
+        <where>
+            <if test="name != null and name != '' ">
+                AND sp_user.uname like concat("%",#{name},"%")
+            </if>
+        </where>
+    </select>
+
+    <update id="userUpdateForDong" parameterType="int">
+        UPDATE `shop`.`sp_user`
+        SET `ustatue`= 0 WHERE `uid`=#{id}
+    </update>
+
+    <update id="userUpdateForJie" parameterType="int">
+        UPDATE `shop`.`sp_user`
+        SET `ustatue`= 1 WHERE `uid`=#{id}
+    </update>
+</mapper>

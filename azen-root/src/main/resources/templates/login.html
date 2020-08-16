@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Azen - Administrators Login</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" th:href="@{assets/css/app.min.css}">
+    <link rel="stylesheet" th:href="@{assets/bundles/bootstrap-social/bootstrap-social.css}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/styles.css}">
+    <link rel="stylesheet" th:href="@{assets/css/components.css}">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/custom.css}">
+    <link rel="stylesheet" th:href="@{assets/css/element.css}">
+    <link rel="icon" th:href="@{assets/img/favicon.ico}" type="image/png">
+</head>
+
+<body>
+<div class="loader"></div>
+<div id="app">
+    <section class="section">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h4>Login</h4>
+                        </div>
+                        <div class="card-body">
+                            <form class="needs-validation">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                           required autofocus v-model="adEmails">
+                                    <div class="invalid-feedback">
+                                        Please fill in your email
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="d-block">
+                                        <label for="password" class="control-label">Password</label>
+                                    </div>
+                                    <input id="password" type="password" class="form-control" name="password"
+                                           tabindex="2" required v-model="adPawds">
+                                    <div class="invalid-feedback">
+                                        please fill in your password
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" tabindex="4" @click="acctLogin()">
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- General JS Scripts -->
+<script th:src="@{assets/js/app.min.js}"></script>
+<!-- JS Libraies -->
+<!-- Page Specific JS File -->
+<!-- Template JS File -->
+<script th:src="@{assets/js/scripts.js}"></script>
+<!-- Custom JS File -->
+<script th:src="@{assets/js/custom.js}"></script>
+<script th:src="@{assets/js/vue.js}"></script>
+<script th:src="@{assets/js/element.js}"></script>
+<script th:src="@{assets/js/axios.js}"></script>
+<script th:src="@{assets/js/dataParse.js}"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data() {
+            return {
+                adEmails: "",
+                adPawds: ""
+            }
+        },
+        methods: {
+            acctLogin() {
+                axios({
+                    method: "post",
+                    url: "/adminLogin",
+                    transformRequest: [
+                        function (data) {
+                            return parseParams(data);
+                        }
+                    ],
+                    data: {
+                        adEmail: this.adEmails,
+                        adPawd: this.adPawds
+                    }
+                }).then((response) => {
+                    if (response.data) {
+                        window.location.replace("http://localhost:8080/index");
+                    } else {
+                        this.$notify.error({
+                            title: '登录失败',
+                            message: '请检查邮箱、密码是否正确',
+                            position: 'bottom-right'
+                        });
+                    }
+                })
+            }
+        }
+    })
+</script>
+</body>
+
+</html>
